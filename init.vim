@@ -28,6 +28,10 @@ Plug 'liuchengxu/vim-which-key'
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
+" Cool bottom bar
+Plug 'vim-airline/vim-airline'
+
+Plug 'severin-lemaignan/vim-minimap'
 " To register the descriptions when using the on-demand load feature,
 " use the autocmd hook to call which_key#register(), e.g., register for the Space key:
 " autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
@@ -80,7 +84,9 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Telling it to load proper python
 "set pyxversion=2
 " Ruler, aka character number, line num etc
-set statusline+=%F\ %l\:%c
+"set statusline
+set ruler
+"set rulerformat=%15(%c%V\ %p%%%)
 
 set scrolloff=8
 set smarttab
@@ -96,6 +102,14 @@ set nu
 set expandtab
 
 colorscheme gruvbox
+" Minimap
+let g:minimap_show='<leader>ms'
+let g:minimap_update='<leader>mu'
+let g:minimap_close='<leader>gc'
+let g:minimap_toggle='<leader>gt'
+let g:minimap_highlight='Visual'
+
+
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -126,7 +140,8 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-clangd',
   \ 'coc-cmake',
-  \ 'coc-jedi'
+  \ 'coc-jedi',
+  \ 'coc-git'
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
